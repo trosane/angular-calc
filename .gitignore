@@ -1,0 +1,3 @@
+#ignore the massive node_modules folder and the typings folder, run npm install after cloning
+node_modules/
+typings/

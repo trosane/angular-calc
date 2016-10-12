@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row" *ngIf="warning">
+        <span class="alert alert-danger col-xs-12" role="alert">There was an error with the calculation syntax: {{errorMessage}}</span>
+    </div>
+    
+    <!-- calculator window -->
+    <div class="row">
+        <div class="col-xs-12 output text-center">
+            <span [(ngModel)]="calcWindow" name="calcWindow" class="calculation" ngDefaultControl>{{calcWindow}}</span>
+        </div>
+    </div>
+
+    <!-- calculator buttons -->
+    <div class="calculator spacing">
+    
+        <div class="row">
+            <div class="col-xs-3">
+                <button (click)="addToCalc('1')" class="btn btn-block btn-secondary btn-md">1</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('2')" class="btn btn-block btn-secondary btn-md">2</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('3')" class="btn btn-block btn-secondary btn-md">3</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('+')"  class="btn btn-block btn-warning btn-md">+</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <button (click)="addToCalc('4')" class="btn btn-block btn-secondary btn-md">4</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('5')" class="btn btn-block btn-secondary btn-md">5</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('6')" class="btn btn-block btn-secondary btn-md">6</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('-')"  class="btn btn-block btn-warning btn-md">-</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <button (click)="addToCalc('7')" class="btn btn-block btn-secondary btn-md">7</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('8')" class="btn btn-block btn-secondary btn-md">8</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('9')" class="btn btn-block btn-secondary btn-md">9</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="addToCalc('*')"  class="btn btn-block btn-warning btn-md">x</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3 offset-xs-3">
+                <button (click)="addToCalc('0')" class="btn btn-block btn-secondary btn-md">0</button>
+            </div>
+            <div class="col-xs-3 offset-xs-3">
+                <button (click)="addToCalc('/')"  class="btn btn-block btn-warning btn-md">÷</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-9">
+                <button (click)="calculate()" class="btn btn-block btn-primary btn-md">Calculate!</button>
+            </div>
+            <div class="col-xs-3">
+                <button (click)="clear()" class="btn btn-block btn-danger btn-md">Clear</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <h3>Previous Calculations</h3>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let e of equations">
+                <span>{{e.equation}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
